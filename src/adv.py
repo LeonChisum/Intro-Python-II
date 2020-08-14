@@ -53,6 +53,21 @@ while True:
 # * Waits for user input and decides what to do.
     user_input = input("Pick a direction to move to the next room (ex. e , s , n, w?)")
 # If the user enters a cardinal direction, attempt to move to the room there.
+    inputs = ["n", "s", "e", "w"]
+    if user_input == "q":
+        break
+    split = user_input.split()
+    print(f"{split}")
+    if len(split) == 1:
+        attr = f"{user_input}_to"
+        if hasattr(player1.current_room, attr):
+            new_room = getattr(player1.current_room, attr)
+            print(f"Hmmm, I see you are trying to move to {new_room.name}")
+            player1.current_room = new_room
+        else:
+            print("That was not a valid direction to move")
+            continue
+
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
