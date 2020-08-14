@@ -50,6 +50,10 @@ while True:
 
 # * Prints the current description (the textwrap module might be useful here).
     print(f"{player1.current_room.description}")
+# Items currently in the room
+    print("These are the items that are currently in your room:")
+    for item in player1.current_room.items:
+        print(item)
 # * Waits for user input and decides what to do.
     user_input = input("Pick a direction to move to the next room (ex. e , s , n, w?)")
 # If the user enters a cardinal direction, attempt to move to the room there.
