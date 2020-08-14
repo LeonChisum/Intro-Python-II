@@ -6,7 +6,7 @@ class Room:
     def __init__(self, name, description):
         self.name = name
         self.description = description
-        self.items = list[Item] = []
+        self.items = Item = []
 
     def room_name(self):
         print(f"You are currently located in {self.name}")

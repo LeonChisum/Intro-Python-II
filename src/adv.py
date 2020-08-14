@@ -1,5 +1,6 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
@@ -34,6 +35,9 @@ room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
 
+room['outside'].items.append(Item("Car", "Fast use for transportation"))
+room['foyer'].items.append(Item("Painting", "Visually pleasing representation of art"))
+room['narrow'].items.append(Item("Rug", "Quality fabric made to make the feet feel like royalty"))
 #
 # Main
 #
@@ -53,7 +57,7 @@ while True:
 # Items currently in the room
     print("These are the items that are currently in your room:")
     for item in player1.current_room.items:
-        print(item)
+        print(f"{item.name}: {item.description}")
 # * Waits for user input and decides what to do.
     user_input = input("Pick a direction to move to the next room (ex. e , s , n, w?)")
 # If the user enters a cardinal direction, attempt to move to the room there.
